@@ -1,0 +1,39 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Compile Plugin",
+      "type": "shell",
+      "command": "npm run build -- ${input:ver_inc} ${input:install}",
+      "group": { "kind": "build", "isDefault": true },
+      "presentation": { "reveal": "always" },
+      "problemMatcher": []
+    },
+    {
+      "label": "Push Runtime (watch)",
+      "type": "npm",
+      "script": "push",
+      "isBackground": true,
+      "problemMatcher": []
+    }
+  ],
+  "inputs": [
+    {
+      "id": "ver_inc",
+      "description": "Version Inc:",
+      "type": "pickString",
+      "options": ["dev", "fix", "min", "maj", "none", "none --no-encrypt"],
+      "default": "dev"
+    },
+    {
+      "id": "install",
+      "description": "Install into Designer's Plugins folder?",
+      "type": "pickString",
+      "options": [
+        { "label": "Install", "value": "--install" },
+        { "label": "Build only", "value": "" }
+      ],
+      "default": "--install"
+    }
+  ]
+}

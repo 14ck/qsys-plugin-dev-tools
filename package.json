@@ -1,0 +1,26 @@
+{
+  "name": "qsys-plugin-dev-tools",
+  "version": "0.1.0",
+  "description": "Qsys Plugin Dev Tools",
+  "main": "index.js",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "init": "node scripts/init.js",
+    "push": "nodemon --watch plugin/runtime.lua --watch plugin/info.lua --watch dev/shim.lua --ext lua index.js push",
+    "push:once": "node index.js push",
+    "pull": "node index.js pull",
+    "config:get": "node index.js config",
+    "build": "node scripts/build.js",
+    "image:publish": "node scripts/publish-image.js"
+  },
+  "author": "Jack Becerra",
+  "license": "UNLICENSED",
+  "dependencies": {
+    "dotenv": "^18.0.7",
+    "ide_qsys": "^3.1.2"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.14"
+  }
+}

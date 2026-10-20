@@ -1,0 +1,2 @@
+# docker/ runs on Linux; CRLF breaks /bin/sh
+docker/* text eol=lf
